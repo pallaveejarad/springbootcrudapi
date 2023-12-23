@@ -40,4 +40,10 @@ public class EmployeeServiceImpl implements EmployeeService {
 		
 	}
 
+	@Transactional
+	@Override
+	public String update(Employee employee) {
+	String status = employeeDAO.update(employee);
+		 return status;
+	}
 }

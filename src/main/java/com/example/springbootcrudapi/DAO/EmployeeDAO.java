@@ -6,14 +6,15 @@ import com.example.springbootcrudapi.model.Employee;
 
 public interface EmployeeDAO {
 	
-	List<Employee> get();
+	public List<Employee> get();
 	
-	Employee get(int id);
+    public	Employee get(int id);
 	
-	void save(Employee employee);
+	public void save(Employee employee);
 	
-	void delete(int id);
+	public void delete(int id);
 	
+	public String update(Employee emp);
 	
 
 }

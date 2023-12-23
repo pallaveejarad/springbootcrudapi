@@ -45,5 +45,21 @@ public class EmployeeDAOImpl implements EmployeeDAO {
 		Employee empObj = currentSession.get(Employee.class, id);
 		currentSession.remove(empObj);
 	}
+	
+	@Override
+	public String update(Employee employee) {
+		Session currentSession= entityManager.unwrap(Session.class);
+		Employee emp = entityManager.find(Employee.class, employee.getId());
+		if(emp != null) {
+			emp.setName(employee.getName());
+			emp.setGender(emp.getGender());
+			emp.setDob(employee.getDob());
+		    emp.setDepartment(employee.getDepartment());
+		currentSession.merge(employee);
+		} else {
+			return "data not found";
+		}
+		return "success";
+	}
 
 }
